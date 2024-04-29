@@ -6,8 +6,9 @@
 #include <iomanip>
 #include <time.h>
 #include <chrono>
-#include <syncstream>
 #include <thread>
+
+int _i_max = 50000;
 
 double dummyloop(int i_max = 50000);
 
@@ -26,15 +27,13 @@ int main(int argc, char *argv[]){
     fout.open(fname.c_str());
     fout<<"jobID        : "<<jobID<<std::endl;
     fout<<"fname        : "<<fname<<std::endl;
-    fout<<"dummyloop()  : "<<dummyloop()<<std::endl;
+    fout<<"dummyloop()  : "<<dummyloop(_i_max)<<std::endl;
+    fout<<"i_max        : "<<_i_max<<std::endl;
+    fout<<"n loops      : "<<(double)_i_max*(double)_i_max<<std::endl;
     fout<<"threadID     : "<<std::this_thread::get_id()<<std::endl;
     finish = clock();
     fout<<"Working time : "<<(finish - start)/CLOCKS_PER_SEC<<" (sec)"<<std::endl;
     fout.close();
-    //
-    //std::jthread t1{foo};
-    //std::jthread t2{foo};
-    //foo();
     //
   }
   else if(argc == 2 && atoi(argv[1])==2){

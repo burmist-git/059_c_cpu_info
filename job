@@ -1,0 +1,13 @@
+#!/bin/bash -l
+#SBATCH --job-name=greasy_serial_tasks
+#SBATCH --account=cta04
+#SBATCH --time=00:10:00
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=1
+#SBATCH --partition=normal
+#SBATCH --constraint=mc
+ 
+module load daint-mc
+module load GREASY
+  
+greasy job.list
