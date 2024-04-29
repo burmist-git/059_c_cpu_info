@@ -24,6 +24,8 @@ int main(int argc, char *argv[]){
     std::ofstream fout;
     std::string jobID = argv[2];
     std::string fname = argv[3];
+    std::cout<<"jobID        : "<<jobID<<std::endl
+	     <<"fname        : "<<fname<<std::endl;
     fout.open(fname.c_str());
     fout<<"jobID        : "<<jobID<<std::endl;
     fout<<"fname        : "<<fname<<std::endl;
@@ -33,6 +35,7 @@ int main(int argc, char *argv[]){
     fout<<"threadID     : "<<std::this_thread::get_id()<<std::endl;
     finish = clock();
     fout<<"Working time : "<<(finish - start)/CLOCKS_PER_SEC<<" (sec)"<<std::endl;
+    std::cout<<"Working time : "<<(finish - start)/CLOCKS_PER_SEC<<" (sec)"<<std::endl;
     fout.close();
     //
   }
